@@ -39,7 +39,6 @@ public class ArrayUtil {
             int mid = numbers[numbers.length / 2];
             System.out.println("\n11. Middle element is: " + mid);
 
-
         }
         System.out.println("2.The first element of array is " + numbers[0]);
         System.out.println("3.The last element of array is  " + numbers[i - 1]);
@@ -53,6 +52,3 @@ public class ArrayUtil {
         System.out.println("10.Average is " + result / numbers.length);
     }
 }
-
-
-
