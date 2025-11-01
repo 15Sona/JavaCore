@@ -62,7 +62,7 @@ public class EmployeeDemo implements Commands {
             String position = scanner.nextLine();
             Employee employee = new Employee(employeeName, employeSurename, emplyeeID, salary, company, position);
             employeeStorage.add(employee);
-            System.out.println("Employee successfully added");
 
         }
+
     }

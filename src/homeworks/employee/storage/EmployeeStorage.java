@@ -7,10 +7,26 @@ public class EmployeeStorage {
     private int size = 0;
 
     public void add(Employee employee) {
+
+        if (existByID(employee.getEmplyeeId())) {
+            System.out.println("Employee with ID [" + employee.getEmplyeeId() + "] already exists!");
+            return;
+        }
         if (size == employees.length) {
             extend();
         }
         employees[size++] = employee;
+        System.out.println("Employee successfully added");
+
+    }
+    private boolean existByID(String id){
+        for (int i = 0; i < size; i++) {
+            if(employees[i].getEmplyeeId().equals(id)){
+                return true;
+            }
+
+        }
+        return false;
 
     }
 
