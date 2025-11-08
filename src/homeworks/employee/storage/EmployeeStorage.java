@@ -1,5 +1,6 @@
 package homeworks.employee.storage;
 
+import homeworks.employee.PositionLevel;
 import homeworks.employee.model.Employee;
 
 public class EmployeeStorage {
@@ -62,4 +63,18 @@ public class EmployeeStorage {
             }
         }
     }
+    public void searchEmployeeByPositionLevel(PositionLevel level) {
+        boolean found = false;
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getLevel() == level) {
+                System.out.println(employees[i]);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No employees with this level");
+        }
+    }
+
+
 }

@@ -6,5 +6,6 @@ public interface Commands {
     String PRINT_ALL_EMPLOYEE = "2";
     String SEARCH_EMPLOYEE_BY_EMPLOYEE_ID ="3";
     String SEARCH_EMPLOYEE_BY_COMPANY_NAME="4";
+    String SEARCH_EMPLOYEES_BY_POSITION_LEVEL = "5";
 
 }

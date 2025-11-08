@@ -33,6 +33,18 @@ public class EmployeeDemo implements Commands {
                     String companyName = scanner.nextLine();
                     employeeStorage.searchEmployeeByCompanyName(companyName);
                     break;
+                case SEARCH_EMPLOYEES_BY_POSITION_LEVEL:
+                    System.out.println("Please input Position Level (JUNIOR, MIDDLE, SENIOR, LEAD)");
+                    String levelStr = scanner.nextLine();
+                    try {
+                        PositionLevel level = PositionLevel.valueOf(levelStr.toUpperCase());
+                        employeeStorage.searchEmployeeByPositionLevel(level);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Invalid level!");
+                    }
+                    break;
+
+
                 default:
                     System.out.println("wrong command");
 
@@ -45,24 +57,29 @@ public class EmployeeDemo implements Commands {
                 System.out.println("Enter " + PRINT_ALL_EMPLOYEE + " to PRINT ALL EMPLOYEES");
                 System.out.println("Enter " + SEARCH_EMPLOYEE_BY_EMPLOYEE_ID + " to SEARCH EMPLOYEE BY ID");
                 System.out.println("Enter " + SEARCH_EMPLOYEE_BY_COMPANY_NAME + " to SEARCH EMPLOYEE BY COMPANY NAME ");
+                System.out.println("Enter " + SEARCH_EMPLOYEES_BY_POSITION_LEVEL + " to SEARCH EMPLOYEES BY POSITION LEVEL");
             }
 
-    private static void addEmployee () {
-            System.out.println("Please input employee name: ");
-            String employeeName = scanner.nextLine();
-            System.out.println("Please input employee surname: ");
-            String employeSurename = scanner.nextLine();
-            System.out.println("Please input emplyee ID: ");
-            String emplyeeID = scanner.nextLine();
-            System.out.println("Please input employee salary: ");
-            double salary = Double.parseDouble(scanner.nextLine());
-            System.out.println("Please input employee company: ");
-            String company = scanner.nextLine();
-            System.out.println("Please input employee position: ");
-            String position = scanner.nextLine();
-            Employee employee = new Employee(employeeName, employeSurename, emplyeeID, salary, company, position);
-            employeeStorage.add(employee);
 
-        }
+
+    private static void addEmployee() {
+        System.out.println("Please input employee name: ");
+        String employeeName = scanner.nextLine();
+        System.out.println("Please input employee surname: ");
+        String employeSurename = scanner.nextLine();
+        System.out.println("Please input employee ID: ");
+        String emplyeeID = scanner.nextLine();
+        System.out.println("Please input employee salary: ");
+        double salary = Double.parseDouble(scanner.nextLine());
+        System.out.println("Please input employee company: ");
+        String company = scanner.nextLine();
+        System.out.println("Please input employee position level (JUNIOR, MIDDLE, SENIOR, LEAD): ");
+        String levelStr = scanner.nextLine();
+
+        PositionLevel level = PositionLevel.valueOf(levelStr.toUpperCase());
+
+        Employee employee = new Employee(employeeName, employeSurename, emplyeeID, salary, company, level);
+        employeeStorage.add(employee);
+    }
 
     }
